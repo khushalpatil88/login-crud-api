@@ -95,37 +95,37 @@ module.exports = {
         });
     },
 
-    login:(req,res)=>{
-        const body = req.body;
-        getuserbyuseremail(body.email,(err,results)=>{
-            if(err){
-                console.log(err);
-            }
-            if(!results){
-                return res.json({
-                    success: 0 ,
-                    data :"invalid email or password"
-                });          
-            }
-            const result = compareSync(body.password,results.password);
-            if(result){
-                results.password = undefined;
-                const jsonwebtoken =sign({result: results},"khushal12" ,{
-                    expiresIn:"1h"
-                });
-              return res.json({
-                    success:1,
-                    message:"login succssfully",
-                    token: jsonwebtoken
-                });
-            }
-            else{
-                return res.json({
-                    success:0,
-                    data:"invalid email or password"
-                });
-            }
-        });
-    }
+    // login:(req,res)=>{
+    //     const body = req.body;
+    //     getuserbyuseremail(body.email,(err,results)=>{
+    //         if(err){
+    //             console.log(err);
+    //         }
+    //         if(!results){
+    //             return res.json({
+    //                 success: 0 ,
+    //                 data :"invalid email or password"
+    //             });          
+    //         }
+    //         const result = compareSync(body.password,results.password);
+    //         if(result){
+    //             results.password = undefined;
+    //             const jsonwebtoken =sign({result: results},"khushal12" ,{
+    //                 expiresIn:"1h"
+    //             });
+    //           return res.json({
+    //                 success:1,
+    //                 message:"login succssfully",
+    //                 token: jsonwebtoken
+    //             });
+    //         }
+    //         else{
+    //             return res.json({
+    //                 success:0,
+    //                 data:"invalid email or password"
+    //             });
+    //         }
+    //     });
+    // }
 
 };
