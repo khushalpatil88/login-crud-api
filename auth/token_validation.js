@@ -1,3 +1,6 @@
+//this file are the token file then user are use to genarate the the token and token are use update the database entries then token 
+// token are invalid there is no changes in the database 
+
 const { verify }= require("jsonwebtoken");
 
 
